@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your QR Code</title>
+  <script>
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const guestName = urlParams.get('name');
+
+      if (guestName) {
+        // Generate the QR code URL using the guest's name
+        const qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?data=' + encodeURIComponent('Name: ' + guestName) + '&size=150x150';
+
+        // Update the page content
+        document.getElementById('guest-name').innerText = guestName;
+        document.getElementById('qr-code').src = qrCodeUrl;
+      } else {
+        document.getElementById('error-message').innerText = 'No name provided!';
+      }
+    };
+  </script>
+</head>
+<body>
+  <h1>Your QR Code</h1>
+  <p>Welcome, <span id="guest-name"></span>! Here is your QR code:</p>
+  <img id="qr-code" alt="QR Code">
+  <p id="error-message" style="color: red;"></p>
+</body>
+</html>
