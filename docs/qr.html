@@ -11,7 +11,7 @@
 
       if (guestName) {
         // Generate the QR code URL using the guest's name
-        const qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?data=' + encodeURIComponent('Name: ' + guestName) + '&size=150x150';
+        const qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + encodeURIComponent('Name: ' + guestName);
 
         // Update the page content
         document.getElementById('guest-name').innerText = guestName;
