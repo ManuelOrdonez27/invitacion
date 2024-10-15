@@ -34,7 +34,7 @@
   <img src="assets/Capture.PNG" alt="Logo" width="200">
 
   <!-- QR Code -->
-  <p>Here is your QR code:</p>
+  <p>¡Gracias por confirmar tu asistencia, ` + guestName + `!</p>
   <img id="qr-code" alt="QR Code" width="150" height="150">
 
   <!-- JavaScript to generate the QR Code -->
@@ -47,7 +47,7 @@
       console.log(guestName);
 
       if (guestName) {
-        const qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + encodeURIComponent('Name: ' + guestName);
+        const qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + encodeURIComponent(guestName);
         document.getElementById('qr-code').src = qrCodeUrl;
         console.log(qrCodeUrl);
       } else {
