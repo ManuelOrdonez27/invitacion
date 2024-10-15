@@ -44,7 +44,7 @@
       const guestName = urlParams.get('name');
 
       if (guestName) {
-        const qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?data=' + encodeURIComponent('Name: ' + guestName) + '&size=150x150';
+        const qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + encodeURIComponent('Name: ' + guestName);
         document.getElementById('qr-code').src = qrCodeUrl;
       } else {
         document.body.innerHTML = '<p>No guest name provided!</p>';
