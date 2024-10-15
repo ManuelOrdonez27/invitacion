@@ -1,15 +1,55 @@
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QR Code Display</title>
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-color: #f7f7f7;
+      font-family: 'Roboto', sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    img {
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome to the QR Code Generator</h1>
-  <p>Use the links below to access QR code pages:</p>
-  <ul>
-    <li><a href="qr.html">View your QR Code</a></li>
-  </ul>
+  <h1>Welcome to the QR Code Display Page</h1>
+  
+  <!-- Image -->
+  <img src="assets/logo.png" alt="Logo" width="200">
+
+  <!-- QR Code -->
+  <p>Here is your QR code:</p>
+  <img id="qr-code" alt="QR Code" width="150" height="150">
+
+  <!-- JavaScript to generate the QR Code -->
+  <script>
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const guestName = urlParams.get('name');
+
+      if (guestName) {
+        const qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?data=' + encodeURIComponent('Name: ' + guestName) + '&size=150x150';
+        document.getElementById('qr-code').src = qrCodeUrl;
+      } else {
+        document.body.innerHTML = '<p>No guest name provided!</p>';
+      }
+    };
+  </script>
 </body>
 </html>
