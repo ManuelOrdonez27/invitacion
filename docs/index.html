@@ -25,10 +25,18 @@
     img {
       margin-top: 20px;
     }
+
+   .guest-name {
+      color: #333;
+      font-size: 1.5em;
+      margin-top: 10px;
+   }
   </style>
 </head>
 <body>
   <h1>Welcome to the QR Code Display Page</h1>
+
+  <h2 class="guest-name" id="guest-name">Loading...</h2>
   
   <!-- Image -->
   <img src="assets/Capture.PNG" alt="Logo" width="200">
@@ -48,6 +56,9 @@
 
       if (guestName) {
         const qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + encodeURIComponent(guestName);
+
+       document.getElementById('guest-name').innerText = '¡Hola ' + guestName + ' !';
+       
         document.getElementById('qr-code').src = qrCodeUrl;
         console.log(qrCodeUrl);
       } else {
