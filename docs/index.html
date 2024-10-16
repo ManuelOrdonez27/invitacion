@@ -12,7 +12,7 @@
   <!-- Custom CSS -->
   <style>
     body {
-      background-color: #8a9597;
+      background-color: #000000;
       font-family: 'Roboto', sans-serif;
       text-align: center;
       padding: 50px;
@@ -47,7 +47,7 @@
 
   <!-- QR Code -->
   <p>¡Gracias por confirmar tu asistencia!, Usa el siguiente código el día del evento para conocer tu mesa</p>
-  <img id="qr-code" alt="QR Code" width="150" height="150">
+  <img id="qr-code" alt="QR Code" width="250" height="250">
 
   <!-- JavaScript to generate the QR Code -->
   <script>
@@ -59,7 +59,7 @@
       console.log(guestName);
 
       if (guestName) {
-        const qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + encodeURIComponent(guestName);
+        const qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=' + encodeURIComponent(guestName);
 
        document.getElementById('guest-name').innerText = '¡Hola ' + guestName + ' !';
        
