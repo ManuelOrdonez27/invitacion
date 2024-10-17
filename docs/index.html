@@ -97,7 +97,7 @@
       if (guestName) {
         const qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=' + encodeURIComponent(guestName);
 
-       document.getElementById('guest-name').innerText = '¡Hola ' + guestName + ' !';
+       document.getElementById('guest-name').innerText = '¡Hola ' + guestName + '!';
        
         document.getElementById('qr-code').src = qrCodeUrl;
         console.log(qrCodeUrl);
