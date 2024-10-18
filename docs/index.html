@@ -109,15 +109,17 @@
       
     };
 
-     var page = 0;
-    $('#redirect').load(function() {
-    page++;
-     console.log(page)
-    if ( page > 1 ) {  // Replace with Number of Pages in Survey
-        document.location = "https://google.com"; 
-     console.log(page)//  Replace with the Page you want to send them to
-    }
-  });
+      // Detect form submission in the iframe
+    document.getElementById('redirect').onload = function() {
+      const iframe = document.getElementById('redirect');
+      const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+      // Check if the form submission was successful by looking for the confirmation message
+      if (iframeDoc.body.innerText.includes('Gracias por confirmar')) {
+        // Redirect to a different page after form submission
+        window.location.href = 'https://google.com';  // Change this to your redirect URL
+      }
+    };
 
     
    </script>
